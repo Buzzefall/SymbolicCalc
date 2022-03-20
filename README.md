@@ -1,5 +1,5 @@
 # SymbolicCalc
-Symbolic differentiator and evaluator for simple expressions parsed from text input.
+Symbolic differentiator and evaluator for simple expressions parsed from text input. AST is formed by polymorhic class Expression hierarchy, where nodes are some derivative classes of Expression.
 
 Memory is managed by std::shared_ptr so there should be no much cluttering as long as you access Expression object through std::shared_ptr<Expression>.
 
@@ -22,6 +22,15 @@ Not all possibilities are supported, but some examples are as follows:
 * (x^(sinx + 5\*x^2) + 5)\*x (will evaluate, but differentiation is not implemented)
 
 ## Usage example
+
+API of Expression class is plain simple:
+
+```C++
+static shared_ptr<Expression> tryParse(std::string input_str); // try to parse input string and get parsed expression
+
+virtual double evaluate(double x); // evaluate expression for value 'x' provided
+virtual shared_ptr<Expression> diff(); // get derivative of expression
+```
 
 ```C++
 auto x = 3.14;
