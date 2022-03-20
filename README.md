@@ -48,11 +48,11 @@ try {
 Example 2:
 ```C++
 auto x = make_shared<Variable>();
-auto sinus = make_shared<Sin>(x)
-auto base = make_shared<Mult>(x, sinus)
+auto sinus = make_shared<Sin>(x);
+auto base = make_shared<Mult>(x, sinus);
 auto power = make_shared<Constant>(3.14);
 	
-auto expression = make_shared<Power>(base, power)
+auto expression = make_shared<Power>(base, power);
 auto value = expression->evaluate(x);
 auto diff_value = expression->diff()->evaluate(x);
 ```
