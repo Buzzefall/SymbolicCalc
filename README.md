@@ -1,7 +1,7 @@
 # SymbolicCalc
 Symbolic differentiator and evaluator for simple expressions parsed from text input. AST is formed by polymorhic class Expression hierarchy, where nodes are some derivative classes of Expression.
 
-Memory is managed by std::shared_ptr so there should be no much cluttering as long as you access Expression object through std::shared_ptr<Expression>.
+Memory is managed by `std::shared_ptr` so there should be no much cluttering as long as you access Expression object through `std::shared_ptr<Expression>`.
 
 ## Text input
 **Binary operations**: +, -, \*, /, ^ (power);
@@ -16,7 +16,7 @@ Memory is managed by std::shared_ptr so there should be no much cluttering as lo
 
 **Note**: power calculates only as expr^const_expr, where const_expr is expression not containing `x` 
 
-Not all possibilities are supported, but some examples are as follows:
+Not all possibilities are supported, but here some examples:
 * x^2 +x\*sin(x - 2\*x/1000 + 1)\*5 + 5/x + x/2 + x^2\*(5 - 1)
 * x^x  (will evaluate, but differentiation is not implemented)
 * (x^(sinx + 5\*x^2) + 5)\*x (will evaluate, but differentiation is not implemented)
