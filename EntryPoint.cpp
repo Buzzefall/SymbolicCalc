@@ -25,7 +25,7 @@ int main()
 	shared_ptr<Expression> not_allowed_expr = make_shared<Power>(x_cube, make_shared<Variable>());
 	shared_ptr<Expression> diff_not_implemented = make_shared<Power>(make_shared<Constant>(2), make_shared<Variable>());
 
-	constexpr auto pts = 5;
+	constexpr auto pts = 10;
 	constexpr auto angle_step = 0.628;
 
 	plot(diff_not_implemented, 2*pts);
