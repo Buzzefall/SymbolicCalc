@@ -4,9 +4,11 @@ Symbolic differentiator and evaluator for simple expressions parsed from text in
 Memory is managed by std::shared_ptr so there should be no much cluttering as long as you access Expression object through std::shared_ptr<Expression>.
 
 ## Text input
-Binary operations allowed: +, -, \*, /, ^ (power)
-Unary operations allowed: none, except functions sin(expr), cos(expr)
-
+Binary operations allowed: +, -, \*, /, ^ (power);
+Unary operations allowed: none, except functions sin(expr), cos(expr);
+Variables: x
+Constants: any number [0-9]+
+	
 ## Example expressions
 
 **Note**: power calculates only as expr^const_expr, where const_expr is expression not containing `x` 
