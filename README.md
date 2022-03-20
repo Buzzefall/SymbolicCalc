@@ -54,6 +54,6 @@ auto power = make_shared<Power>(x, make_shared<Constant>(3.14));
 auto expression = make_shared<Add>(power, mult); // represents x^(3.14) + x*sinx
 	
 auto x_value = 137;
-auto value = expression->evaluate(x_value);
-auto diff_value = expression->diff()->evaluate(x_value);
+auto value = expression->evaluate(x_value); // 151.796 for x = 5
+auto diff_value = expression->diff()->evaluate(x_value); // 98.7983 for x = 5
 ```
