@@ -21,7 +21,7 @@ Not all possibilities are supported, but some examples are as follows:
 * x^x  (will evaluate, but differentiation is not implemented)
 * (x^(sinx + 5\*x^2) + 5)\*x (will evaluate, but differentiation is not implemented)
 
-## Usage example
+## Usage
 
 API of Expression class is plain simple:
 
@@ -31,7 +31,8 @@ static shared_ptr<Expression> tryParse(std::string input_str); // try to parse i
 virtual double evaluate(double x); // evaluate expression for value 'x' provided
 virtual shared_ptr<Expression> diff(); // get derivative of expression
 ```
-
+	
+Example 1:
 ```C++
 auto x = 3.14;
 try {
@@ -42,4 +43,16 @@ try {
 } catch (std::exception& e) {
 	std::cout << e.what() << std::endl;
 }
+```
+	
+Example 2:
+```C++
+auto x = make_shared<Variable>();
+auto sinus = make_shared<Sin>(x)
+auto base = make_shared<Mult>(x, sinus)
+auto power = make_shared<Constant>(3.14);
+	
+auto expression = make_shared<Power>(base, power)
+auto value = expression->evaluate(x);
+auto diff_value = exression->diff()->evaluate(x);
 ```
