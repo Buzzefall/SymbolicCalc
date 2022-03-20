@@ -54,5 +54,5 @@ auto power = make_shared<Constant>(3.14);
 	
 auto expression = make_shared<Power>(base, power)
 auto value = expression->evaluate(x);
-auto diff_value = exression->diff()->evaluate(x);
+auto diff_value = expression->diff()->evaluate(x);
 ```
