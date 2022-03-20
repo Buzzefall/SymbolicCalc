@@ -21,11 +21,10 @@ Not all possibilities are supported, but some examples are as follows:
 ```C++
 auto x = 3.14;
 try {
-  auto parsed = Expression::tryParse(TestInput);
+  auto parsed = Expression::tryParse(TestInput); // returns shared_ptr<Expression>
   auto value = parsed->evaluate(x);
-  
   auto derivative = = parsed->diff();
-  auto diff_value = derivative->evaluate(x); // or parsed->diff()->evaluate(x);
+  auto diff_value = derivative->evaluate(x);
 } catch (std::exception& e) {
 	std::cout << e.what() << std::endl;
 }
