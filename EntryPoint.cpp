@@ -56,7 +56,7 @@ int main()
 	plot(monster_expr_3, pts, angle_step);
 	plot(monster_expr_3->diff(), pts, angle_step);
 
-	auto parsed = Expression::tryParse(TestInput);
+	auto parsed = Expression::try_parse(TestInput);
 
 	plot(parsed, pts);
 	plot(parsed->diff(), pts);
