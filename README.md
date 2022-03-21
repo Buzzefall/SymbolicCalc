@@ -26,11 +26,15 @@ Not all possibilities are supported, but here some examples:
 API of Expression class is plain simple:
 
 ```C++
-static shared_ptr<Expression> tryParse(std::string input_str); // try to parse input string and get parsed expression
+// try to parse input string and get parsed expression
+static shared_ptr<Expression> tryParse(std::string input_str); 
 
-virtual double evaluate(double x); // evaluate expression for value 'x' provided
-virtual shared_ptr<Expression> diff(); // get derivative of expression
-virtual shared_ptr<Expression> taylor_series(size_t order, double at_point); // self-describing
+// evaluate expression for value 'x' provided
+virtual double evaluate(double x); 
+// get derivative of expression
+virtual shared_ptr<Expression> diff(); 
+// get taylor series expression
+virtual shared_ptr<Expression> taylor_series(size_t order, double at_point); 
 ```
 	
 Example 1:
