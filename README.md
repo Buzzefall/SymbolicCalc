@@ -40,7 +40,7 @@ try {
   auto value = parsed->evaluate(x);
   auto derivative = = parsed->diff();
   auto diff_value = derivative->evaluate(x);
-  auto taylor = Expression::taylor_series(parsed, 3, 0);
+  auto taylor = parsed->taylor_series(3, 0);
 } catch (std::exception& e) {
 	std::cout << e.what() << std::endl;
 }
