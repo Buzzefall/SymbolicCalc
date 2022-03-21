@@ -36,10 +36,11 @@ Example 1:
 ```C++
 auto x = 3.14;
 try {
-  auto parsed = Expression::tryParse(TestInput); // returns shared_ptr<Expression>
+  auto parsed = Expression::try_parse(TestInput); // returns shared_ptr<Expression>
   auto value = parsed->evaluate(x);
   auto derivative = = parsed->diff();
   auto diff_value = derivative->evaluate(x);
+  auto taylor = Expression::taylor_series(parsed, 3, 0);
 } catch (std::exception& e) {
 	std::cout << e.what() << std::endl;
 }
