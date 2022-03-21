@@ -170,18 +170,18 @@ shared_ptr<Expression> Expression::try_parse(std::string input_str) {
 }
 
 
-shared_ptr<Expression> Expression::taylor_series(shared_ptr<Expression>& expression, size_t series_order, double at_point) {
+shared_ptr<Expression> Expression::taylor_series(size_t order, double at_point) {
 	shared_ptr<Expression> arg_difference = make_shared<Add>(
 		make_shared<Variable>(), 
 		make_shared<Constant>(-at_point)
 	);
 
-	shared_ptr<Expression> derivative = expression->diff();
+	shared_ptr<Expression> derivative = this->diff();
 	shared_ptr<Expression> taylor = make_shared<Mult>(arg_difference, make_shared<Constant>(derivative->evaluate(at_point)));
 
 	size_t factorial = 1;
 	size_t member_degree = 2;
-	while (member_degree <= series_order) {
+	while (member_degree <= order) {
 		factorial *= member_degree;
 		derivative = derivative->diff();
 		auto arg_diff_nth = make_shared<Power>(arg_difference, make_shared<Constant>(member_degree));
@@ -197,7 +197,7 @@ shared_ptr<Expression> Expression::taylor_series(shared_ptr<Expression>& express
 	}
 
 
-	return make_shared<Add>(make_shared<Constant>(expression->evaluate(at_point)), taylor);
+	return make_shared<Add>(make_shared<Constant>(this->evaluate(at_point)), taylor);
 }
 
 

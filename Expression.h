@@ -13,11 +13,11 @@ public:
 	virtual ~Expression() = default;
 
 	static shared_ptr<Expression> try_parse(std::string input_str);
-	static shared_ptr<Expression> taylor_series(shared_ptr<Expression>& expression, size_t series_order, double at_point);
 	static shared_ptr<Expression> try_parse_recursive(std::string input_str);
 
 	virtual double evaluate(double x) = 0;
 	virtual shared_ptr<Expression> diff() = 0;
+	virtual shared_ptr<Expression> taylor_series(size_t order, double at_point);
 };
 
 
