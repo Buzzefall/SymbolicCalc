@@ -12,9 +12,9 @@ Memory is managed by `std::shared_ptr` so there should be no much cluttering as 
 	
 **Constants**: any number [0-9]+
 	
-## Example expressions
+### Example expressions
 
-**Note**: power calculates only as expr^const_expr, where const_expr is expression not containing `x` 
+**Note**: Power(x, y) calculates only as expr^const_expr, where const_expr is expression not containing Variable (you can call it `x`, since there is support for only one variable in expressions currently) 
 
 Not all possibilities are supported, but here some examples:
 * **x^2 +x\*sin(x - 2\*x/1000 + 1)\*5 + 5/x + x/2 + x^2\*(5 - 1)**
