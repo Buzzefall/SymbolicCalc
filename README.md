@@ -37,21 +37,21 @@ virtual shared_ptr<Expression> diff();
 virtual shared_ptr<Expression> taylor_series(size_t order, double at_point); 
 ```
 	
-Example 1:
+**Example 1**:
 ```C++
 auto x = 3.14;
 try {
-  auto parsed = Expression::try_parse(TestInput); // returns shared_ptr<Expression>
+  auto parsed = Expression::try_parse(TestInput);
   auto value = parsed->evaluate(x);
   auto derivative = = parsed->diff();
   auto diff_value = derivative->evaluate(x);
-  auto taylor = parsed->taylor_series(3, 0);
+  auto taylor = parsed->taylor_series(3, 0); // needs expression to be 3 times differentiable 
 } catch (std::exception& e) {
 	std::cout << e.what() << std::endl;
 }
 ```
 	
-Example 2:
+**Example 2**:
 ```C++
 auto x = make_shared<Variable>();
 auto sinx = make_shared<Sin>(x);
