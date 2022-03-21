@@ -27,7 +27,7 @@ API of Expression class is plain simple:
 
 ```C++
 // try to parse input string and get parsed expression
-static shared_ptr<Expression> tryParse(std::string input_str); 
+static shared_ptr<Expression> try_parse(std::string input_str); 
 
 // evaluate expression for value 'x' provided
 virtual double evaluate(double x); 
