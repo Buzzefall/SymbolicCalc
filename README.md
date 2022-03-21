@@ -30,6 +30,7 @@ static shared_ptr<Expression> tryParse(std::string input_str); // try to parse i
 
 virtual double evaluate(double x); // evaluate expression for value 'x' provided
 virtual shared_ptr<Expression> diff(); // get derivative of expression
+virtual shared_ptr<Expression> taylor_series(size_t order, double at_point); // self-describing
 ```
 	
 Example 1:
