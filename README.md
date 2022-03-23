@@ -33,7 +33,7 @@ static shared_ptr<Expression> try_parse(std::string input_str);
 virtual double evaluate(double x); 
 // get derivative of expression
 virtual shared_ptr<Expression> diff(); 
-// get taylor series expression
+// get taylor series of expression
 virtual shared_ptr<Expression> taylor_series(size_t order, double at_point); 
 ```
 	
