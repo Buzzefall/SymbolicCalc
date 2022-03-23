@@ -1,7 +1,7 @@
 # SymbolicCalc
 Symbolic differentiator and evaluator for simple expressions parsed from text input. AST is formed by polymorhic class Expression hierarchy, where nodes are some derivative classes of Expression.
 
-Memory is managed by `std::shared_ptr` so there should be no much cluttering as long as you access Expression object through `std::shared_ptr<Expression>`.
+Memory is managed by `std::shared_ptr` so there should be no much cluttering as long as you access Expression object through `std::shared_ptr<Expression>` (upd: see TODO.md, sure there are issues with memory).
 
 ## Text input
 **Binary operations**: +, -, \*, /, ^ (power);
