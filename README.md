@@ -53,11 +53,11 @@ try {
 	
 **Example 2**:
 ```C++
-auto x = make_shared<Variable>();
-auto sinx = make_shared<Sin>(x);
-auto mult = make_shared<Mult>(x, sinx);
-auto power = make_shared<Power>(x, make_shared<Constant>(3.14));
-auto expression = make_shared<Add>(power, mult); // represents x^(3.14) + x*sinx
+shared_ptr<Expression> x = make_shared<Variable>();
+shared_ptr<Expression> sinx = make_shared<Sin>(x);
+shared_ptr<Expression> mult = make_shared<Mult>(x, sinx);
+shared_ptr<Expression> power = make_shared<Power>(x, make_shared<Constant>(3.14));
+shared_ptr<Expression> expression = make_shared<Add>(power, mult); // represents x^(3.14) + x*sinx
 	
 auto x_value = 5;
 auto value = expression->evaluate(x_value); // 151.796 for x = 5
