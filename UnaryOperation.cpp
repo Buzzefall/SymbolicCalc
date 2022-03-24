@@ -10,7 +10,7 @@ Negation::Negation(shared_ptr<Expression> expr): UnaryOperation(std::move(expr))
 
 double Negation::evaluate(double x) { return -1 * expression->evaluate(x); }
 
-shared_ptr<Expression> Negation::diff() { return make_shared<Mult>(make_shared<Constant>(-1), expression->diff()); }
+shared_ptr<Expression> Negation::diff() { return make_shared<Negation>(expression->diff()); }
 
 
 Sin::Sin(shared_ptr<Expression> expr): UnaryOperation(std::move(expr)) { }

@@ -25,9 +25,27 @@ public:
 };
 
 
+class Sub final : public BinaryOperation {
+public:
+	explicit Sub(shared_ptr<Expression> lex, shared_ptr<Expression> rex);
+
+	double evaluate(double x) override;
+	shared_ptr<Expression> diff() override;
+};
+
+
 class Mult final : public BinaryOperation {
 public:
 	explicit Mult(shared_ptr<Expression> lex, shared_ptr<Expression> rex);
+
+	double evaluate(double x) override;
+	shared_ptr<Expression> diff() override;
+};
+
+
+class Div final : public BinaryOperation {
+public:
+	explicit Div(shared_ptr<Expression> lex, shared_ptr<Expression> rex);
 
 	double evaluate(double x) override;
 	shared_ptr<Expression> diff() override;

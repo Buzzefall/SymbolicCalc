@@ -4,7 +4,7 @@
 #include "Expression.h"
 #include "UnaryOperation.h"
 
-const auto TestInput = std::string("x^2 + sin(x*314/1000) + x^3");
+const auto TestInput = std::string("x^2 + sin(x*314/1000) + x^3 - 5/x - 5");
 
 
 void plot(const shared_ptr<Expression>& e, int count, double step = 1.0) {
@@ -53,7 +53,7 @@ int main()
 	plot(monster_expr_1, pts, angle_step);
 	plot(monster_expr_1->diff(), pts, angle_step);
 
-	// these passed on Wolfram Mathematica query "plot ((sin(cosx) * 2x^3)^3)' where x from 0 to pi"
+	// these passed on Wolfram Mathematica query "plot ((sin(cosx) * 2 * x^3)^3)' where x from 0 to pi"
 	plot(monster_expr_3, pts, angle_step);
 	plot(monster_expr_3->diff(), pts, angle_step);
 

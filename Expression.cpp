@@ -147,13 +147,13 @@ shared_ptr<Expression> Expression::try_parse(std::string input_str) {
 						expression_stack.push(make_shared<Mult>(op1, op2));
 						break;
 					case '/': 
-						expression_stack.push(make_shared<Mult>(op1, make_shared<Power>(op2, make_shared<Constant>(-1))));
+						expression_stack.push(make_shared<Div>(op1, op2));
 						break;
 					case '+': 
 						expression_stack.push(make_shared<Add>(op1, op2));
 						break;
 					case '-': 
-						expression_stack.push(make_shared<Add>(op1, make_shared<Negation>(op2)));
+						expression_stack.push(make_shared<Sub>(op1, op2));
 						break;
 				}
 				break;
@@ -190,7 +190,7 @@ shared_ptr<Expression> Expression::taylor_series(size_t order, double at_point) 
 			make_shared<Mult>(
 				make_shared<Mult>(arg_diff_nth, make_shared<Constant>(derivative->evaluate(at_point))), 
 				make_shared<Power>(
-					make_shared<Constant>(factorial), make_shared<Negation>(Constant::One()))
+					make_shared<Constant>(factorial), make_shared<Constant>(-1))
 				)
 		);
 		++member_degree;
@@ -201,11 +201,13 @@ shared_ptr<Expression> Expression::taylor_series(size_t order, double at_point) 
 }
 
 
+// TODO
 size_t find_lowest(std::string input_str) {
 	return 0;
 }
 
 
+// TODO
 shared_ptr<Expression> Expression::try_parse_recursive(std::string input_str) {
 	assert(brackets_correspond(input_str));
 
