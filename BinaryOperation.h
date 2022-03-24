@@ -13,7 +13,6 @@ protected:
 public:
 	explicit BinaryOperation(shared_ptr<Expression> lex, shared_ptr<Expression> rex)
 			: lexpression(std::move(lex)), rexpression(std::move(rex)) { }
-	//~BinaryOperation() override { delete lexpression; delete rexpression; }
 };
 
 

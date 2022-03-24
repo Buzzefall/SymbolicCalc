@@ -15,15 +15,16 @@ void plot(const shared_ptr<Expression>& e, int count, double step = 1.0) {
 
 int main()
 {
-	shared_ptr<Expression> x_cube = make_shared<Power>(make_shared<Variable>(), make_shared<Constant>(3));
+	shared_ptr<Expression> x = make_shared<Variable>();
+	shared_ptr<Expression> x_cube = make_shared<Power>(x, make_shared<Constant>(3));
 	shared_ptr<Expression> mult_expr = make_shared<Mult>(x_cube, make_shared<Constant>(2));
-	shared_ptr<Expression> cos_expr = make_shared<Cos>(make_shared<Variable>());
-	shared_ptr<Expression> sin_expr = make_shared<Sin>(make_shared<Variable>());
-	shared_ptr<Expression> monster_expr_0 = make_shared<Power>(make_shared<Mult>(mult_expr, make_shared<Sin>(cos_expr)), make_shared<Constant>(0));
-	shared_ptr<Expression> monster_expr_1 = make_shared<Power>(make_shared<Mult>(mult_expr, make_shared<Sin>(cos_expr)), make_shared<Constant>(1));
+	shared_ptr<Expression> cos_expr = make_shared<Cos>(x);
+	shared_ptr<Expression> sin_expr = make_shared<Sin>(x);
+	shared_ptr<Expression> monster_expr_0 = make_shared<Power>(make_shared<Mult>(mult_expr, make_shared<Sin>(cos_expr)), Constant::Zero());
+	shared_ptr<Expression> monster_expr_1 = make_shared<Power>(make_shared<Mult>(mult_expr, make_shared<Sin>(cos_expr)), Constant::One());
 	shared_ptr<Expression> monster_expr_3 = make_shared<Power>(make_shared<Mult>(mult_expr, make_shared<Sin>(cos_expr)), make_shared<Constant>(3));
-	shared_ptr<Expression> not_allowed_expr = make_shared<Power>(x_cube, make_shared<Variable>());
-	shared_ptr<Expression> diff_not_implemented = make_shared<Power>(make_shared<Constant>(2), make_shared<Variable>());
+	shared_ptr<Expression> not_allowed_expr = make_shared<Power>(x_cube, x);
+	shared_ptr<Expression> diff_not_implemented = make_shared<Power>(make_shared<Constant>(2), x);
 
 	constexpr auto pts = 10;
 	constexpr auto angle_step = 0.628;

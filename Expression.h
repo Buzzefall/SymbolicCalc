@@ -1,4 +1,5 @@
 #pragma once
+
 #include <memory>
 #include <string>
 
@@ -22,15 +23,21 @@ public:
 
 
 class Constant final: public Expression {
-protected:
-	double value;
-
 public:
 	explicit Constant(double val) : value(val) { }
 	~Constant() override = default;
 
+	static shared_ptr<Expression> One();
+	static shared_ptr<Expression> Zero();
+
 	double evaluate(double x) override { return value; }
-	shared_ptr<Expression> diff() override { return make_shared<Constant>(0); }
+	shared_ptr<Expression> diff() override { return Zero(); }
+
+private:
+	double value;
+
+	inline static shared_ptr<Expression> one = nullptr;
+	inline static shared_ptr<Expression> zero = nullptr;
 };
 
 
@@ -40,5 +47,5 @@ public:
 	~Variable() override = default;
 
 	double evaluate(double x) override { return x; }
-	shared_ptr<Expression> diff() override { return make_shared<Constant>(1); }
+	shared_ptr<Expression> diff() override { return Constant::One(); }
 };

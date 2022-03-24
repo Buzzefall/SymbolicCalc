@@ -190,7 +190,7 @@ shared_ptr<Expression> Expression::taylor_series(size_t order, double at_point) 
 			make_shared<Mult>(
 				make_shared<Mult>(arg_diff_nth, make_shared<Constant>(derivative->evaluate(at_point))), 
 				make_shared<Power>(
-					make_shared<Constant>(factorial), make_shared<Constant>(-1))
+					make_shared<Constant>(factorial), make_shared<Negation>(Constant::One()))
 				)
 		);
 		++member_degree;
@@ -232,4 +232,16 @@ shared_ptr<Expression> Expression::try_parse_recursive(std::string input_str) {
 	//find_lowest(input_str);
 
 	return try_parse_recursive(input_str);
+}
+
+
+shared_ptr<Expression> Constant::One() {
+	if (one == nullptr) { one = make_shared<Constant>(1); }
+	return one;
+}
+
+
+shared_ptr<Expression> Constant::Zero() {
+	if (zero == nullptr) { zero = make_shared<Constant>(0); }
+	return zero;
 }
