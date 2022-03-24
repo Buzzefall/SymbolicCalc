@@ -9,7 +9,7 @@
      * Get rid of redundant information and unnecessary computations 
      * Must have for Taylor series differentiation as expression tree grows exponentially
 7. **Abstract FunctionExpression type**
-     * This will allow to implement composition of abstract functions
+     * This will (hopefully) allow to implement composition of abstract functions
      * And probably helpful to implement equation solver
 8. **Equation Expression type**
 9. **Multiple expression variables support**
